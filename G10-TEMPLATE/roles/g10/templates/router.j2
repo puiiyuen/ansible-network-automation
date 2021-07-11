@@ -1,0 +1,24 @@
+hostname {{item.hostname}}
+!
+{% if item.interfaces is defined %}
+{% for interface in item.interfaces %}
+interface {{ interface.name }}
+ ip address {{ interface.ip }}
+ no shutdown
+!
+{% endfor %}
+{% endif %}
+!
+{% if item.routing_protocols is defined %}
+{% for routing_protocol in item.routing_protocols %}
+router {{ routing_protocol.type }} {{ routing_protocol.area }}
+{% for network in routing_protocol.networks %}
+ network {{ network }}
+{% endfor %}
+{% if routing_protocol.redistributions is defined %}
+{% for redistribution in routing_protocol.redistributions %}
+ redistribute {{ redistribution }} 
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endif %}

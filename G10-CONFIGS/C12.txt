@@ -1,0 +1,13 @@
+hostname C12
+!
+interface g0/1
+ ip address 172.16.1.1 255.255.255.0
+ no shutdown
+!
+interface g0/2
+ ip address 172.16.2.1 255.255.255.0
+ no shutdown
+!
+!
+router eigrp 1
+ network 172.16.0.0

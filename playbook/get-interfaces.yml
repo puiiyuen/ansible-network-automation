@@ -1,0 +1,12 @@
+---
+- name: 
+  gather_facts: false
+  hosts: g10
+  tasks: 
+    - name: Get Interface info
+      cisco.ios.ios_command:
+        commands:
+          - show ip int bri
+    
+      register: print_output
+    - debug: var=print_output.stdout_lines[0]

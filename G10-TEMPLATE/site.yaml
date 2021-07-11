@@ -1,0 +1,12 @@
+---
+- name: Configure Routers
+  gather_facts: false
+  hosts: g10
+  roles: 
+    - g10
+
+# - name: Configure C12 and C13
+#   gather_facts: false
+#   hosts: internal1
+#   roles:
+#     - internal1
