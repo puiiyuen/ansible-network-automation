@@ -22,6 +22,9 @@ mkdir "vars"
 cd "vars"
 touch "main.yaml"
 
+cd "../../G10-CONFIGS"
+mkdir $role
+cd ".."
+
 echo "Finished..."
 
-cd -
