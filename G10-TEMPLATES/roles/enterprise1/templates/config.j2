@@ -21,10 +21,21 @@ router {{ routing_protocol.type }} {{ routing_protocol.area }}
 {% for network in routing_protocol.networks %}
  network {{ network }}
 {% endfor %}
+{% if routing_protocol.type == "bgp" %}
+{% for link in routing_protocol.links %}
+ neighbor {{ link.neighbor }} remote-as {{ link.remote_as }}
+{% endfor %}
+{% if routing_protocol.synchronization %}
+ synchronization
+{% else %}
+ no synchronization
+{% endif %}
+{% endif %}
 {% if routing_protocol.redistributions is defined %}
 {% for redistribution in routing_protocol.redistributions %}
  redistribute {{ redistribution }} 
 {% endfor %}
 {% endif %}
+!
 {% endfor %}
 {% endif %}

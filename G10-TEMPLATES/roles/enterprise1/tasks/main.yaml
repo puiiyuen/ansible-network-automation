@@ -16,6 +16,6 @@
   template:
     dest: /etc/ansible/G10-CONFIGS/enterprise1/{{item.hostname}}.txt
     src: "config.j2"
-  with_items: "{{routers}}"
+  with_items: "{{ routers }}"
   when:
     - item.router_mgnt == inventory_hostname

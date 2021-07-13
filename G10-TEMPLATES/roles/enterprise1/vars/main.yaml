@@ -56,3 +56,16 @@ routers:
         redistributions: 
           - static
           - bgp 1 metric 100 1 255 1 1500
+      - type: bgp
+        enable: true
+        area: 1
+        networks: 
+          - 1.1.1.1 mask 255.255.255.255
+          - 172.16.0.0
+        synchronization: true
+        links:
+          - neighbor: 10.10.1.2
+            remote_as: 12
+        redistributions: 
+          - eigrp 1
+
