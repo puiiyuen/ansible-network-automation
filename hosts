@@ -47,7 +47,7 @@ all:
   children:
     g10:
       children:
-        enterpise1:
+        enterprise1:
           hosts:
             192.168.1.[1:3]:
           children:
@@ -60,7 +60,7 @@ all:
         isp:
           hosts:
             192.168.1.[4:6]:
-        enterpise2:
+        enterprise2:
           hosts:
             192.168.1.[7:9]:
           children: 
