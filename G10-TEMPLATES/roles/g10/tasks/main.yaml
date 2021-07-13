@@ -6,9 +6,9 @@
 #   when: 
 #    - item.router_mgnt == inventory_hostname 
 
-- name: Export Configuration Above
+- name: Generate Configuration
   template:
-    dest: /etc/ansible/G10-CONFIGS/{{item.hostname}}.txt
+    dest: /etc/ansible/G10-CONFIGS/g10/{{item.hostname}}.txt
     src: "router.j2"
   with_items: "{{routers}}"
   when:
