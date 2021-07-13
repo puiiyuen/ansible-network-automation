@@ -11,17 +11,17 @@ cd $role
 
 mkdir "tasks"
 cd "tasks"
-echo -e "# Tasks -> main.yaml\n# Role: $role\n# Create at `TZ="America/Toronto" date`\n\n" > "main.yaml"
+echo -e "# --------------------------------------\n# Tasks -> main.yaml\n# Role: $role\n# Create at `TZ="America/Toronto" date`\n# --------------------------------------\n\n---" > "main.yaml"
 cd ".."
 
 mkdir "templates"
 cd "templates"
-echo -e "{# Templates -> config.j2 #}\n{# Role: $role #}\n{# Create at `TZ="America/Toronto" date` #}\n\n" > "config.j2"
+echo -e "{# -------------------------------------- #}\n{# Templates -> config.j2 #}\n{# Role: $role #}\n{# Create at `TZ="America/Toronto" date` #}\n{# -------------------------------------- #}\n" > "config.j2"
 cd ".."
 
 mkdir "vars"
 cd "vars"
-echo -e "# Variables -> main.yaml\n# Role: $role\n# Create at `TZ="America/Toronto" date`\n\n" > "main.yaml"
+echo -e "# --------------------------------------\n# Variables -> main.yaml\n# Role: $role\n# Create at `TZ="America/Toronto" date`\n# --------------------------------------\n\n---" > "main.yaml"
 cd ".."
 
 cd ".."

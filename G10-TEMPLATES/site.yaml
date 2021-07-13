@@ -11,8 +11,8 @@
 #   roles:
 #     - internal1
 
-- name: Configure Enterpise1
+- name: Configure Enterprise1
   gather_facts: false
-  hosts: enterpise1
+  hosts: enterprise1
   roles: 
-    - enterpise1
+    - enterprise1
