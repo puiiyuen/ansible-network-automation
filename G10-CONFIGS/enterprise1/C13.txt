@@ -12,3 +12,4 @@ interface g0/2
 !
 router eigrp 1
  network 172.16.0.0
+!
