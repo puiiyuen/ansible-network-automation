@@ -25,7 +25,7 @@ router {{ routing_protocol.type }} {{ routing_protocol.area }}
 {% for link in routing_protocol.links %}
  neighbor {{ link.neighbor }} remote-as {{ link.remote_as }}
 {% endfor %}
-{% if routing_protocol.synchronization %}
+{% if routing_protocol.synchronization is defined and routing_protocol.synchronization %}
  synchronization
 {% else %}
  no synchronization

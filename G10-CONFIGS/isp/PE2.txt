@@ -1,0 +1,29 @@
+
+hostname PE2
+!
+interface lo0
+ ip address 4.4.4.4 255.255.255.255
+  no shutdown
+!
+interface g0/1
+ ip address 10.10.3.2 255.255.255.0
+  mpls ip
+  no shutdown
+!
+interface g0/3
+ ip address 10.10.4.2 255.255.255.0
+  no shutdown
+!
+!
+router ospf 1
+ network 4.4.4.4 0.0.0.0 area 0
+ network 10.10.3.0 0.0.0.255 area 0
+!
+router bgp 12
+ neighbor 2.2.2.2 remote-as 12
+ neighbor 2.2.2.2 next-hop-self
+ neighbor 10.10.1.2 remote-as 12
+ neighbor 10.10.1.2 next-hop-self
+ neighbor 10.10.4.1 remote-as 2
+ no synchronization
+!
