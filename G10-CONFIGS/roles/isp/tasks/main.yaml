@@ -1,7 +1,7 @@
 # --------------------------------------
 # Tasks -> main.yaml
-# Role: enterprise2
-# Create at Tue Jul 13 18:42:01 EDT 2021
+# Role: isp
+# Create at Wed Jul 14 13:28:15 EDT 2021
 # --------------------------------------
 
 ---
@@ -14,7 +14,7 @@
 
 - name: Generate Configuration
   template:
-    dest: "G10-CONFIGS/enterprise2/{{item.hostname}}.txt"
+    dest: "G10-OUTPUTS/isp/{{item.hostname}}.txt"
     src: "config.j2"
   with_items: "{{ routers }}"
   when:
