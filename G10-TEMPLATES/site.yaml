@@ -17,14 +17,14 @@
 #   roles: 
 #     - enterprise1
 
-# - name: Configure Enterprise2
-#   gather_facts: false
-#   hosts: enterprise2
-#   roles: 
-#     - enterprise2
-
-- name: Configure ISP
+- name: Configure Enterprise2
   gather_facts: false
-  hosts: isp
+  hosts: enterprise2
   roles: 
-    - isp
+    - enterprise2
+
+# - name: Configure ISP
+#   gather_facts: false
+#   hosts: isp
+#   roles: 
+#     - isp

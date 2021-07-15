@@ -14,7 +14,7 @@
 
 - name: Generate Configuration
   template:
-    dest: /etc/ansible/G10-CONFIGS/isp/{{item.hostname}}.txt
+    dest: "G10-CONFIGS/isp/{{item.hostname}}.txt"
     src: "config.j2"
   with_items: "{{ routers }}"
   when:
