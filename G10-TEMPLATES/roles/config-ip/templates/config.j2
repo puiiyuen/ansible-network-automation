@@ -1,0 +1,18 @@
+{# -------------------------------------- #}
+{# Templates -> config.j2 #}
+{# Role: config-ip #}
+{# Create at Thu 15 Jul 2021 11:32:18 EDT #}
+{# -------------------------------------- #}
+
+{% if item.interfaces is defined %}
+{% for interface in item.interfaces %}
+interface {{ interface.name }}
+ ip address {{ interface.ip }}
+{% if interface.enable %}
+ no shutdown
+{% else %}
+ shutdown
+{% endif %}
+!
+{% endfor %}
+{% endif %}
