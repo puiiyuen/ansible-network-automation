@@ -41,7 +41,6 @@ routers:
         networks:
           - 2.2.2.2 0.0.0.0 area 0
           - 10.10.2.0 0.0.0.255 area 0
-      
       - type: bgp
         area: 12
         links: 

@@ -4,17 +4,12 @@
 {# Create at Wed Jul 14 13:28:15 EDT 2021 #}
 {# -------------------------------------- #}
 
+{% import "lib/interface.j2" as intf %}
 hostname {{item.hostname}}
 !
 {% if item.interfaces is defined %}
 {% for interface in item.interfaces %}
-interface {{ interface.name }}
- ip address {{ interface.ip }}
- {% if interface.mpls is defined %}
- mpls {{ interface.mpls }}
- {% endif %}
- no shutdown
-!
+{{ intf.config_interface(interface) }}
 {% endfor %}
 {% endif %}
 !

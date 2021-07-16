@@ -29,8 +29,14 @@
 #   roles: 
 #     - isp
 
-- name: Configure Interfaces
+# - name: Configure Interfaces
+#   gather_facts: false
+#   hosts: enterprise1,enterprise2,isp
+#   roles: 
+#     - config-ip
+
+- name: Configure Routing Protocols
   gather_facts: false
   hosts: enterprise1,enterprise2,isp
   roles: 
-    - config-ip
+    - config-rt-protocols

@@ -39,7 +39,6 @@ routers:
           - 172.17.0.0
         redistributions: 
           - bgp 2 metric 100 1 255 1 1500
-
       - type: bgp
         area: 2
         synchronization: false
