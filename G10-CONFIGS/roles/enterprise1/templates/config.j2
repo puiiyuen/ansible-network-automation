@@ -5,6 +5,7 @@
 {# -------------------------------------- #}
 
 {% import "lib/interface.j2" as intf %}
+{% import "lib/routing-protocol.j2" as rt_ptl %}
 hostname {{item.hostname}}
 !
 {% if item.interfaces is defined %}
@@ -15,25 +16,6 @@ hostname {{item.hostname}}
 !
 {% if item.routing_protocols is defined %}
 {% for routing_protocol in item.routing_protocols %}
-router {{ routing_protocol.type }} {{ routing_protocol.area }}
-{% for network in routing_protocol.networks %}
- network {{ network }}
-{% endfor %}
-{% if routing_protocol.type == "bgp" %}
-{% for link in routing_protocol.links %}
- neighbor {{ link.neighbor }} remote-as {{ link.remote_as }}
-{% endfor %}
-{% if routing_protocol.synchronization is defined and routing_protocol.synchronization %}
- synchronization
-{% else %}
- no synchronization
-{% endif %}
-{% endif %}
-{% if routing_protocol.redistributions is defined %}
-{% for redistribution in routing_protocol.redistributions %}
- redistribute {{ redistribution }} 
-{% endfor %}
-{% endif %}
-!
+{{ rt_ptl.config_routing_protocol(routing_protocol) }}
 {% endfor %}
 {% endif %}

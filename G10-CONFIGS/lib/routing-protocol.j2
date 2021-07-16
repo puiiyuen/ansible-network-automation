@@ -1,0 +1,76 @@
+{# Routing Protocols Configurations and Operations #}
+{# version: 0.0.1 #}
+
+{# funtion: configure routing protocol #}
+{# param: routing protocol json object #}
+{% macro config_routing_protocol(rt_protocol) %}
+{% if rt_protocol.type == "bgp" %}
+{{ config_bgp(rt_protocol) }}
+{%- endif %}
+{% if rt_protocol.type == "ospf" %}
+{{ config_ospf(rt_protocol) }}
+{%- endif %}
+{% if rt_protocol.type == "eigrp" %}
+{{ config_eigrp(rt_protocol) }}
+{%- endif %}
+!
+{%- endmacro %}
+
+
+{# funtion: configure eigrp #}
+{# param: routing protocol json object #}
+{% macro config_eigrp(rt_protocol) %}
+router {{ rt_protocol.type }} {{ rt_protocol.area }}
+{% if rt_protocol.networks is defined %}
+{% for network in rt_protocol.networks %}
+ network {{ network }}
+{% endfor %}
+{% endif %}
+{% if rt_protocol.redistributions is defined %}
+{% for redistribution in rt_protocol.redistributions %}
+ redistribute {{ redistribution }}
+{% endfor %}
+{% endif %}
+{%- endmacro %}
+
+
+{# funtion: configure ospf #}
+{# param: routing protocol json object #}
+{% macro config_ospf(rt_protocol) %}
+router {{ rt_protocol.type }} {{ rt_protocol.area }}
+{% if rt_protocol.networks is defined %}
+{% for network in rt_protocol.networks %}
+ network {{ network }}
+{% endfor %}
+{% endif %}
+{%- endmacro%}
+
+
+{# funtion: configure bgp #}
+{# param: routing protocol json object #}
+{% macro config_bgp(rt_protocol) %}
+router {{ rt_protocol.type }} {{ rt_protocol.area }}
+{% if rt_protocol.synchronization is defined and rt_protocol.synchronization %}
+ synchronization
+{% else %}
+ no synchronization
+{% endif %}
+{% if rt_protocol.networks is defined %}
+{% for network in rt_protocol.networks %}
+ network {{ network }}
+{% endfor %}
+{% endif %}
+{% if rt_protocol.links is defined %}
+{% for link in rt_protocol.links %}
+ neighbor {{ link.neighbor }} remote-as {{ link.remote_as }}
+{% if link.next_hop_self is defined and link.next_hop_self %}
+ neighbor {{ link.neighbor }} next-hop-self
+{% endif %}
+{% endfor %}
+{% endif %}
+{% if rt_protocol.redistributions is defined %}
+{% for redistribution in rt_protocol.redistributions %}
+ redistribute {{ redistribution }} 
+{% endfor %}
+{% endif %}
+{%- endmacro %}

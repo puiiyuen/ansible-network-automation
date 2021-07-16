@@ -1,0 +1,12 @@
+{# -------------------------------------- #}
+{# Templates -> config.j2 #}
+{# Role: config-rt-protocols #}
+{# Create at Thu 15 Jul 2021 20:40:43 EDT #}
+{# -------------------------------------- #}
+
+{% import "lib/routing-protocol.j2" as rt_ptl %}
+{% if item.routing_protocols is defined %}
+{% for rt_protocol in item.routing_protocols %}
+{{ rt_ptl.config_routing_protocol(rt_protocol) }}
+{% endfor %}
+{% endif %}

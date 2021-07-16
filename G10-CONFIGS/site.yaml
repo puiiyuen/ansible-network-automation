@@ -11,23 +11,23 @@
 #   roles:
 #     - internal1
 
-# - name: Configure Enterprise1
-#   gather_facts: false
-#   hosts: enterprise1
-#   roles: 
-#     - enterprise1
+- name: Configure Enterprise1
+  gather_facts: false
+  hosts: enterprise1
+  roles: 
+    - enterprise1
 
-# - name: Configure Enterprise2
-#   gather_facts: false
-#   hosts: enterprise2
-#   roles: 
-#     - enterprise2
+- name: Configure Enterprise2
+  gather_facts: false
+  hosts: enterprise2
+  roles: 
+    - enterprise2
 
-# - name: Configure ISP
-#   gather_facts: false
-#   hosts: isp
-#   roles: 
-#     - isp
+- name: Configure ISP
+  gather_facts: false
+  hosts: isp
+  roles: 
+    - isp
 
 # - name: Configure Interfaces
 #   gather_facts: false
@@ -35,8 +35,8 @@
 #   roles: 
 #     - config-ip
 
-- name: Configure Routing Protocols
-  gather_facts: false
-  hosts: enterprise1,enterprise2,isp
-  roles: 
-    - config-rt-protocols
+# - name: Configure Routing Protocols
+#   gather_facts: false
+#   hosts: enterprise1,enterprise2,isp
+#   roles: 
+#     - config-rt-protocols

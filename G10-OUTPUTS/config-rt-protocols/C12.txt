@@ -1,0 +1,4 @@
+
+router eigrp 1
+ network 172.16.0.0
+!
