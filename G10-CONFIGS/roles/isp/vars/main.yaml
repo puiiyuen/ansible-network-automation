@@ -1,0 +1,82 @@
+# --------------------------------------
+# Variables -> main.yaml
+# Role: isp
+# Create at Wed Jul 14 13:28:15 EDT 2021
+# --------------------------------------
+
+---
+routers:
+  - router_mgnt: 192.168.1.4
+    hostname: P
+    interfaces: 
+      - name: lo0
+        ip: 3.3.3.3 255.255.255.255
+      - name: g0/1
+        ip: 10.10.2.1 255.255.255.0
+        mpls: ip
+      - name: g0/2
+        ip: 10.10.3.1 255.255.255.0
+        mpls: ip
+    routing_protocols: 
+      - type: ospf
+        area: 1
+        networks: 
+          - 3.3.3.3 0.0.0.0 area 0
+          - 10.10.2.0 0.0.0.255 area 0
+          - 10.10.3.0 0.0.0.255 area 0
+
+  - router_mgnt: 192.168.1.5
+    hostname: PE1
+    interfaces: 
+      - name: lo0
+        ip: 2.2.2.2 255.255.255.255
+      - name: g0/2
+        ip: 10.10.2.2 255.255.255.0
+        mpls: ip
+      - name: g0/3
+        ip: 10.10.1.2 255.255.255.0
+    routing_protocols:
+      - type: ospf
+        area: 1
+        networks:
+          - 2.2.2.2 0.0.0.0 area 0
+          - 10.10.2.0 0.0.0.255 area 0
+      - type: bgp
+        area: 12
+        links: 
+          - neighbor: 4.4.4.4
+            remote_as: 12
+            next_hop_self: true
+          - neighbor: 10.10.1.1
+            remote_as: 1
+          - neighbor: 10.10.4.2
+            remote_as: 12
+            next_hop_self: true
+
+  - router_mgnt: 192.168.1.6
+    hostname: PE2
+    interfaces: 
+      - name: lo0
+        ip: 4.4.4.4 255.255.255.255
+      - name: g0/1
+        ip: 10.10.3.2 255.255.255.0
+        mpls: ip
+      - name: g0/3
+        ip: 10.10.4.2 255.255.255.0
+    routing_protocols:
+      - type: ospf
+        area: 1
+        networks:
+          - 4.4.4.4 0.0.0.0 area 0
+          - 10.10.3.0 0.0.0.255 area 0
+      - type: bgp 
+        area: 12
+        links: 
+          - neighbor: 2.2.2.2
+            remote_as: 12
+            next_hop_self: true
+          - neighbor: 10.10.1.2
+            remote_as: 12
+            next_hop_self: true
+          - neighbor: 10.10.4.1
+            remote_as: 2

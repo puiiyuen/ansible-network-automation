@@ -1,0 +1,14 @@
+
+router eigrp 2
+ network 5.0.0.0
+ network 10.0.0.0
+ network 172.17.0.0
+ redistribute bgp 2 metric 100 1 255 1 1500
+!
+router bgp 2
+ no synchronization
+ network 5.5.5.5 mask 255.255.255.255
+ network 172.17.0.0
+ neighbor 10.10.4.2 remote-as 12
+ redistribute eigrp 2 
+!

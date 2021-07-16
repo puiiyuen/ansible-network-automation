@@ -1,0 +1,21 @@
+{# -------------------------------------- #}
+{# Templates -> config.j2 #}
+{# Role: isp #}
+{# Create at Wed Jul 14 13:28:15 EDT 2021 #}
+{# -------------------------------------- #}
+
+{% import "lib/interface.j2" as intf %}
+{% import "lib/routing-protocol.j2" as rt_ptl %}
+hostname {{item.hostname}}
+!
+{% if item.interfaces is defined %}
+{% for interface in item.interfaces %}
+{{ intf.config_interface(interface) }}
+{% endfor %}
+{% endif %}
+!
+{% if item.routing_protocols is defined %}
+{% for routing_protocol in item.routing_protocols %}
+{{ rt_ptl.config_routing_protocol(routing_protocol) }}
+{% endfor %}
+{% endif %}

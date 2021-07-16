@@ -1,0 +1,4 @@
+
+router eigrp 2
+ network 172.17.0.0
+!

@@ -1,0 +1,12 @@
+{# -------------------------------------- #}
+{# Templates -> config.j2 #}
+{# Role: config-ip #}
+{# Create at Thu 15 Jul 2021 11:32:18 EDT #}
+{# -------------------------------------- #}
+
+{% import "lib/interface.j2" as intf %}
+{% if item.interfaces is defined %}
+{% for interface in item.interfaces %}
+{{ intf.config_interface(interface) }}
+{% endfor %}
+{% endif %}

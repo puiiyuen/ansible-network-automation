@@ -1,0 +1,19 @@
+{# Interface Configurations and Operations #}
+{# version: 0.0.1 #}
+
+{# funtion: configure interface #}
+{# param: interface json object #}
+
+{% macro config_interface (interface) %}
+interface {{ interface.name }}
+ ip address {{ interface.ip }}
+{% if interface.mpls is defined %}
+ mpls {{ interface.mpls }}
+{% endif %}
+{% if interface.enable is undefined or interface.enable %}
+ no shutdown
+{% else %}
+ shutdown
+{% endif %}
+!
+{%- endmacro %}

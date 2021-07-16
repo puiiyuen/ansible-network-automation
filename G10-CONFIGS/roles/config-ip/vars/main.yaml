@@ -1,0 +1,118 @@
+# --------------------------------------
+# Variables -> main.yaml
+# Role: config-ip
+# Create at Thu 15 Jul 2021 11:32:18 EDT
+# --------------------------------------
+
+---
+routers:
+  - router_mgnt: 192.168.1.1
+    hostname: C12
+    interfaces: 
+      - name: g0/1 
+        ip: 172.16.1.1 255.255.255.0
+        enable: true
+      - name: g0/2 
+        ip: 172.16.2.1 255.255.255.0
+        enable: true
+
+  - router_mgnt: 192.168.1.2
+    hostname: C13
+    interfaces: 
+      - name: g0/1
+        ip: 172.16.3.1 255.255.255.0
+        enable: true
+      - name: g0/2
+        ip: 172.16.1.2 255.255.255.0
+        enable: true
+
+  - router_mgnt: 192.168.1.3
+    hostname: CE1
+    interfaces: 
+      - name: lo0
+        ip: 1.1.1.1 255.255.255.255
+        enable: true
+      - name: g0/1
+        ip: 172.16.2.2 255.255.255.0
+        enable: true
+      - name: g0/2
+        ip: 172.16.3.2 255.255.255.0
+        enable: true
+      - name: g0/3
+        ip: 10.10.1.1 255.255.255.0
+        enable: true
+
+  - router_mgnt: 192.168.1.4
+    hostname: P
+    interfaces: 
+      - name: lo0
+        ip: 3.3.3.3 255.255.255.255
+        enable: true
+      - name: g0/1
+        ip: 10.10.2.1 255.255.255.0
+        enable: true
+      - name: g0/2
+        ip: 10.10.3.1 255.255.255.0
+        enable: true
+
+  - router_mgnt: 192.168.1.5
+    hostname: PE1
+    interfaces: 
+      - name: lo0
+        ip: 2.2.2.2 255.255.255.255
+        enable: true
+      - name: g0/2
+        ip: 10.10.2.2 255.255.255.0
+        enable: true
+      - name: g0/3
+        ip: 10.10.1.2 255.255.255.0
+        enable: true
+
+  - router_mgnt: 192.168.1.6
+    hostname: PE2
+    interfaces: 
+      - name: lo0
+        ip: 4.4.4.4 255.255.255.255
+        enable: true
+      - name: g0/1
+        ip: 10.10.3.2 255.255.255.0
+        enable: true
+      - name: g0/3
+        ip: 10.10.4.2 255.255.255.0
+        enable: true
+
+  - router_mgnt: 192.168.1.7
+    hostname: C22
+    interfaces: 
+      - name: g0/1
+        ip: 172.17.2.2 255.255.255.0
+        enable: true
+      - name: g0/2
+        ip: 172.17.3.2 255.255.255.0
+        enable: true
+
+  - router_mgnt: 192.168.1.8
+    hostname: CE2
+    interfaces: 
+      - name: lo0
+        ip: 5.5.5.5 255.255.255.255
+        enable: true
+      - name: g0/1
+        ip: 172.17.1.1 255.255.255.0
+        enable: true
+      - name: g0/2
+        ip: 172.17.2.1 255.255.255.0
+        enable: true
+      - name: g0/3
+        ip: 10.10.4.1 255.255.255.0
+        enable: true
+
+  - router_mgnt: 192.168.1.9
+    hostname: C23
+    interfaces: 
+      - name: g0/1
+        ip: 172.17.3.1 255.255.255.0 
+        enable: true
+      - name: g0/2
+        ip: 172.17.1.2 255.255.255.0
+        enable: true
