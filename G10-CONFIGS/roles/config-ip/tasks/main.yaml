@@ -5,13 +5,6 @@
 # --------------------------------------
 
 ---
-# - name: Configure Routers
-#   cisco.ios.ios_config:
-#     src: "config.j2"
-#   with_items: "{{ routers }}"
-#   when: 
-#    - item.router_mgnt == inventory_hostname 
-
 - name: Generate Configuration
   template:
     dest: "G10-OUTPUTS/config-ip/{{item.hostname}}.txt"
@@ -19,3 +12,11 @@
   with_items: "{{ routers }}"
   when:
     - item.router_mgnt == inventory_hostname
+
+- name: Configure Routers
+  cisco.ios.ios_config:
+    src: "../G10-OUTPUTS/config-ip/{{item.hostname}}.txt"
+  with_items: "{{ routers }}"
+  when: 
+    - item.router_mgnt == inventory_hostname 
+
