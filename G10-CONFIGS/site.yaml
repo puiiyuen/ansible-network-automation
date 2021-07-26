@@ -29,14 +29,20 @@
 #   roles: 
 #     - isp
 
-- name: Configure Interfaces
-  gather_facts: false
-  hosts: enterprise1,enterprise2,isp
-  roles: 
-    - config-ip
+# - name: Configure Interfaces
+#   gather_facts: false
+#   hosts: enterprise1,enterprise2,isp
+#   roles: 
+#     - config-ip
 
 # - name: Configure Routing Protocols
 #   gather_facts: false
 #   hosts: enterprise1,enterprise2,isp
 #   roles: 
 #     - config-rt-protocols
+
+- name: Configure SNMP
+  gather_facts: false
+  hosts: enterprise1,enterprise2,isp
+  roles: 
+    - config-snmp
