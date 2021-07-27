@@ -1,7 +1,7 @@
 # --------------------------------------
 # Tasks -> main.yaml
-# Role: config-rt-protocols
-# Create at Thu 15 Jul 2021 20:40:43 EDT
+# Role: config-snmp
+# Create at Wed 21 Jul 2021 10:40:51 EDT
 # --------------------------------------
 
 ---
@@ -16,7 +16,7 @@
 - name: Configure Routers
   cisco.ios.ios_config:
     src: "../G10-OUTPUTS/{{ role_name }}/{{item.hostname}}.txt"
+  # backup: yes
   with_items: "{{ routers }}"
   when: 
    - item.router_mgnt == inventory_hostname 
-

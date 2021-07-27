@@ -1,0 +1,11 @@
+{# -------------------------------------- #}
+{# Templates -> config.j2 #}
+{# Role: config-snmp #}
+{# Create at Wed 21 Jul 2021 10:40:51 EDT #}
+{# -------------------------------------- #}
+ 
+! snmp-server community string [view view-name] [ro | rw] [ipv6 nacl] [access-list-number]
+snmp-server community {{ item.snmp.community }} ro
+
+! snmp-server host host-id [traps | informs] [version {1| 2c | 3 [auth | noauth | priv]}] community-string [udp-port port-number] [notification-type]
+! snmp-server host {{ item.snmp.host }} informs version {{ item.snmp.version }} {{ item.snmp.community }} udp-port 161
