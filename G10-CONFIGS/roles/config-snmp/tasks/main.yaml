@@ -7,7 +7,7 @@
 ---
 - name: Generate Configuration
   template:
-    dest: "G10-OUTPUTS/{{ role_name }}/{{item.hostname}}.txt"
+    dest: "G10-OUTPUTS/{{ role_name }}/{{ inventory_hostname }}.txt"
     src: "config.j2"
   with_items: "{{ routers }}"
   when:
@@ -15,7 +15,7 @@
 
 - name: Configure Routers
   cisco.ios.ios_config:
-    src: "../G10-OUTPUTS/{{ role_name }}/{{item.hostname}}.txt"
+    src: "../G10-OUTPUTS/{{ role_name }}/{{ inventory_hostname }}.txt"
   # backup: yes
   with_items: "{{ routers }}"
   when: 
