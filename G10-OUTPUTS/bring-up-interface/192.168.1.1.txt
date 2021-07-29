@@ -1,0 +1,8 @@
+
+
+interface g0/1
+ no shutdown
+!
+interface g0/2
+ no shutdown
+!

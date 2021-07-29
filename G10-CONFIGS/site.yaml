@@ -41,8 +41,14 @@
 #   roles: 
 #     - config-rt-protocols
 
-- name: Configure SNMP
+# - name: Configure SNMP
+#   gather_facts: false
+#   hosts: enterprise1,enterprise2,isp
+#   roles: 
+#     - config-snmp
+
+- name: Bring up Interfaces
   gather_facts: false
-  hosts: enterprise1,enterprise2,isp
-  roles: 
-    - config-snmp
+  hosts: g10
+  roles:
+    - bring-up-interface

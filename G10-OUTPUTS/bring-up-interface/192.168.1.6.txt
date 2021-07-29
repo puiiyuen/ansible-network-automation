@@ -1,0 +1,11 @@
+
+
+interface lo0
+ no shutdown
+!
+interface g0/1
+ no shutdown
+!
+interface g0/3
+ no shutdown
+!
