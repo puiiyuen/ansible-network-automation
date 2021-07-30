@@ -1,5 +1,5 @@
 
 
-interface g0/1
+interface GigabitEthernet0/1
  no shutdown
 !

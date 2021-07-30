@@ -1,11 +1,11 @@
 
 
-interface lo0
+interface Loopback0
  no shutdown
 !
-interface g0/2
+interface GigabitEthernet0/2
  no shutdown
 !
-interface g0/3
+interface GigabitEthernet0/3
  no shutdown
 !

@@ -1,8 +1,8 @@
 
 
-interface g0/1
+interface GigabitEthernet0/1
  no shutdown
 !
-interface g0/2
+interface GigabitEthernet0/2
  no shutdown
 !

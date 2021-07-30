@@ -1,18 +1,18 @@
 hostname CE2
 !
-interface lo0
+interface Loopback0
  ip address 5.5.5.5 255.255.255.255
  no shutdown
 !
-interface g0/1
+interface GigabitEthernet0/1
  ip address 172.17.1.1 255.255.255.0
  no shutdown
 !
-interface g0/2
+interface GigabitEthernet0/2
  ip address 172.17.2.1 255.255.255.0
  no shutdown
 !
-interface g0/3
+interface GigabitEthernet0/3
  ip address 10.10.4.1 255.255.255.0
  no shutdown
 !

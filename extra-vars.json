@@ -4,7 +4,7 @@
             "router_mgnt": "192.168.1.4",
             "interfaces": [
                 {
-                    "name": "g0/1",
+                    "name": "GigabitEthernet0/1",
                     "enable": true
                 }
             ]
