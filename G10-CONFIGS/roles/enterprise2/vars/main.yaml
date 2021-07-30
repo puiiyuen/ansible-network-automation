@@ -9,9 +9,9 @@ routers:
   - router_mgnt: 192.168.1.7
     hostname: C22
     interfaces: 
-      - name: g0/1
+      - name: GigabitEthernet0/1
         ip: 172.17.2.2 255.255.255.0
-      - name: g0/2
+      - name: GigabitEthernet0/2
         ip: 172.17.3.2 255.255.255.0
     routing_protocols:
       - type: eigrp
@@ -22,13 +22,13 @@ routers:
   - router_mgnt: 192.168.1.8
     hostname: CE2
     interfaces: 
-      - name: lo0
+      - name: Loopback0
         ip: 5.5.5.5 255.255.255.255
-      - name: g0/1
+      - name: GigabitEthernet0/1
         ip: 172.17.1.1 255.255.255.0
-      - name: g0/2
+      - name: GigabitEthernet0/2
         ip: 172.17.2.1 255.255.255.0
-      - name: g0/3
+      - name: GigabitEthernet0/3
         ip: 10.10.4.1 255.255.255.0
     routing_protocols:
       - type: eigrp
@@ -54,9 +54,9 @@ routers:
   - router_mgnt: 192.168.1.9
     hostname: C23
     interfaces: 
-      - name: g0/1
+      - name: GigabitEthernet0/1
         ip: 172.17.3.1 255.255.255.0 
-      - name: g0/2
+      - name: GigabitEthernet0/2
         ip: 172.17.1.2 255.255.255.0
     routing_protocols:
       - type: eigrp

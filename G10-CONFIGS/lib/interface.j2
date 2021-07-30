@@ -6,9 +6,14 @@
 
 {% macro config_interface (interface) %}
 interface {{ interface.name }}
+{% if interface.ip is defined %}
  ip address {{ interface.ip }}
+{% endif %}
 {% if interface.mpls is defined %}
  mpls {{ interface.mpls }}
+{% endif %}
+{% if interface.bw is defined %}
+ bandwidth {{ interface.bw }}
 {% endif %}
 {% if interface.enable is undefined or interface.enable %}
  no shutdown

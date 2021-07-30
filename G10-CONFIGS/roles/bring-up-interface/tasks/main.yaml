@@ -1,7 +1,7 @@
 # --------------------------------------
 # Tasks -> main.yaml
-# Role: config-snmp
-# Create at Wed 21 Jul 2021 10:40:51 EDT
+# Role: bring-up-interface
+# Create at Thu 29 Jul 2021 15:38:16 EDT
 # --------------------------------------
 
 ---
@@ -19,4 +19,4 @@
     diff_against: "running"
   with_items: "{{ routers }}"
   when: 
-   - item.router_mgnt == inventory_hostname 
+    - item.router_mgnt == inventory_hostname 

@@ -1,13 +1,11 @@
 
+
 interface Loopback0
- ip address 4.4.4.4 255.255.255.255
  no shutdown
 !
 interface GigabitEthernet0/1
- ip address 10.10.3.2 255.255.255.0
  no shutdown
 !
 interface GigabitEthernet0/3
- ip address 10.10.4.2 255.255.255.0
  no shutdown
 !
