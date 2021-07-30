@@ -1,8 +1,5 @@
 
 
-interface Loopback0
- no shutdown
-!
 interface GigabitEthernet0/1
  no shutdown
 !
