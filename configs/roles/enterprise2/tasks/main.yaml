@@ -1,13 +1,13 @@
 # --------------------------------------
 # Tasks -> main.yaml
-# Role: isp
-# Create at Wed Jul 14 13:28:15 EDT 2021
+# Role: enterprise2
+# Create at Tue Jul 13 18:42:01 EDT 2021
 # --------------------------------------
 
 ---
 - name: Generate Configuration
   template:
-    dest: "G10-OUTPUTS/{{ role_name }}/{{ inventory_hostname }}.txt"
+    dest: "outputs/{{ role_name }}/{{ inventory_hostname }}.txt"
     src: "config.j2"
   with_items: "{{ routers }}"
   when:
@@ -15,7 +15,7 @@
 
 - name: Configure Routers
   cisco.ios.ios_config:
-    src: "../G10-OUTPUTS/{{ role_name }}/{{ inventory_hostname }}.txt"
+    src: "../outputs/{{ role_name }}/{{ inventory_hostname }}.txt"
     diff_against: "running"
   with_items: "{{ routers }}"
   when: 

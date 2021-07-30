@@ -3,7 +3,7 @@ read role
 
 echo "Creating new role: $role ..."
 
-cd "G10-CONFIGS"
+cd "configs"
 cd "roles"
 
 mkdir $role
@@ -25,7 +25,7 @@ echo -e "# --------------------------------------\n# Variables -> main.yaml\n# R
 cd ".."
 
 cd ".."
-cd "../../G10-OUTPUTS"
+cd "../../outputs"
 mkdir $role
 cd ".."
 
