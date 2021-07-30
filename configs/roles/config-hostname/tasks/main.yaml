@@ -1,7 +1,7 @@
 # --------------------------------------
 # Tasks -> main.yaml
-# Role: isp
-# Create at Wed Jul 14 13:28:15 EDT 2021
+# Role: config-hostname
+# Create at Fri 30 Jul 2021 13:19:24 EDT
 # --------------------------------------
 
 ---
@@ -19,4 +19,4 @@
     diff_against: "running"
   with_items: "{{ routers }}"
   when: 
-   - item.router_mgnt == inventory_hostname 
+    - item.router_mgnt == inventory_hostname 
