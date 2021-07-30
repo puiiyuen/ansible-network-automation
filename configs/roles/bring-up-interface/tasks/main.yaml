@@ -24,3 +24,10 @@
   with_items: "{{ routers }}"
   when: 
     - item.router_mgnt == inventory_hostname 
+
+- name: Commit Backup
+  command:
+    argv:
+      - git init
+      - git add -A
+      - git commit -m "Backup@`TZ="America/Toronto" date`"
