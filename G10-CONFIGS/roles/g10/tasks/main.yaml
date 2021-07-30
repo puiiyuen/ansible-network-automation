@@ -10,6 +10,7 @@
 - name: Configure Routers
   cisco.ios.ios_config:
     src: "../G10-OUTPUTS/{{ role_name }}/{{ inventory_hostname }}.txt"
+    diff_against: "running"
   with_items: "{{ routers }}"
   when: 
    - item.router_mgnt == inventory_hostname 
