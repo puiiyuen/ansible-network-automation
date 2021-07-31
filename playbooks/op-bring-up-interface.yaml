@@ -1,0 +1,5 @@
+- name: Bring up Interface {{ play_hosts }}
+  gather_facts: false
+  hosts: g10
+  roles:
+    - bring-up-interface

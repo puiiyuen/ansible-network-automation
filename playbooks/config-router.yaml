@@ -1,0 +1,9 @@
+- name: Configure Router {{ play_hosts }}
+  gather_facts: false
+  hosts: g10
+  roles: 
+    - config-hostname
+    - config-ip
+    - config-rt-protocols
+    - config-snmp
+    - logging-on

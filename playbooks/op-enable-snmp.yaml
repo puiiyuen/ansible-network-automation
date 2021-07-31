@@ -1,0 +1,5 @@
+- name: Enable SNMP
+  gather_facts: false
+  hosts: g10
+  roles:
+    - config-snmp

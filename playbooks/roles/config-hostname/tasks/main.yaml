@@ -1,0 +1,28 @@
+# --------------------------------------
+# Tasks -> main.yaml
+# Role: config-hostname
+# Create at Fri 30 Jul 2021 13:19:24 EDT
+# --------------------------------------
+
+---
+- name: Generate Configuration
+  template:
+    dest: "outputs/{{ role_name }}/{{ inventory_hostname }}_config.txt"
+    src: "config.j2"
+  with_items: "{{ routers }}"
+  when:
+    - item.router_mgnt == inventory_hostname
+  tags:
+    - generate    
+
+- name: Configure Routers
+  cisco.ios.ios_config:
+    src: "../outputs/{{ role_name }}/{{ inventory_hostname }}_config.txt"
+    diff_against: "running"
+    backup: yes
+    backup_options:
+      dir_path: "../router-backup"
+      filename: "{{ inventory_hostname }}_backup.txt"    
+  with_items: "{{ routers }}"
+  when: 
+    - item.router_mgnt == inventory_hostname 
