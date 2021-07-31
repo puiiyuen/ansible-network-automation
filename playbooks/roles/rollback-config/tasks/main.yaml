@@ -1,0 +1,11 @@
+# --------------------------------------
+# Tasks -> main.yaml
+# Role: rollback-config
+# Create at Fri 30 Jul 2021 18:31:19 EDT
+# --------------------------------------
+
+---
+- name: Rollback Configuration
+  cisco.ios.ios_config:
+    src: "../../router-backup/{{ inventory_hostname }}_config.txt"
+    diff_against: "running"  

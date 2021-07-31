@@ -1,0 +1,5 @@
+- name: Rollback Configuration of {{ play_hosts }}
+  gather_facts: false
+  hosts: g10
+  roles:
+    - rollback-config

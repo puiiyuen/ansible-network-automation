@@ -3,7 +3,7 @@ read role
 
 echo "Creating new role: $role ..."
 
-cd "configs"
+cd "playbooks"
 cd "roles"
 
 mkdir $role

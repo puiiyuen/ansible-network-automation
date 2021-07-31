@@ -18,6 +18,9 @@
     src: "../outputs/{{ role_name }}/{{ inventory_hostname }}.txt"
     diff_against: "running"
     backup: yes
+    backup_options:
+      dir_path: "../router-backup"
+      filename: "{{ inventory_hostname }}_config.txt"    
   with_items: "{{ routers }}"
   when: 
     - item.router_mgnt == inventory_hostname 

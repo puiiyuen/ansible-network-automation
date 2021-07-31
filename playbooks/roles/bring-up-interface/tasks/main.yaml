@@ -1,7 +1,7 @@
 # --------------------------------------
 # Tasks -> main.yaml
-# Role: config-hostname
-# Create at Fri 30 Jul 2021 13:19:24 EDT
+# Role: bring-up-interface
+# Create at Thu 29 Jul 2021 15:38:16 EDT
 # --------------------------------------
 
 ---
@@ -18,6 +18,9 @@
     src: "../outputs/{{ role_name }}/{{ inventory_hostname }}.txt"
     diff_against: "running"
     backup: yes
+    backup_options:
+      dir_path: "../router-backup"
+      filename: "{{ inventory_hostname }}_config.txt"
   with_items: "{{ routers }}"
   when: 
     - item.router_mgnt == inventory_hostname 

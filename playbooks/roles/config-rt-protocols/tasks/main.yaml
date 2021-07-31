@@ -1,7 +1,7 @@
 # --------------------------------------
 # Tasks -> main.yaml
-# Role: bring-up-interface
-# Create at Thu 29 Jul 2021 15:38:16 EDT
+# Role: config-rt-protocols
+# Create at Thu 15 Jul 2021 20:40:43 EDT
 # --------------------------------------
 
 ---
@@ -20,14 +20,8 @@
     backup: yes
     backup_options:
       dir_path: "../router-backup"
-      filename: "{{ inventory_hostname }}_config.txt"
+      filename: "{{ inventory_hostname }}_config.txt"    
   with_items: "{{ routers }}"
   when: 
-    - item.router_mgnt == inventory_hostname 
+   - item.router_mgnt == inventory_hostname 
 
-- name: Commit Backup
-  command:
-    argv:
-      - git init
-      - git add -A
-      - git commit -m "Backup@`TZ="America/Toronto" date`"
