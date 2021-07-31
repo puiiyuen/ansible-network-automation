@@ -1,0 +1,5 @@
+- name: Enable logging
+  gather_facts: false
+  hosts: g10
+  roles:
+    - logging-on

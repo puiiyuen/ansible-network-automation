@@ -20,7 +20,7 @@ echo -e "{# -------------------------------------- #}\n{# Templates -> config.j2
 cd ..
 
 mkdir vars
-cd "vars"
+cd vars
 echo -e "# --------------------------------------\n# Variables -> main.yaml\n# Role: $role\n# Create at `TZ="America/Toronto" date`\n# --------------------------------------\n\n---" > "main.yaml"
 cd ..
 

@@ -1,0 +1,15 @@
+
+router eigrp 1
+ network 1.0.0.0
+ network 10.0.0.0
+ network 172.16.0.0
+ redistribute static
+ redistribute bgp 1 metric 100 1 255 1 1500
+!
+router bgp 1
+ synchronization
+ network 1.1.1.1 mask 255.255.255.255
+ network 172.16.0.0
+ neighbor 10.10.1.2 remote-as 12
+ redistribute eigrp 1 
+!

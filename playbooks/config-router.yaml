@@ -6,3 +6,4 @@
     - config-ip
     - config-rt-protocols
     - config-snmp
+    - logging-on

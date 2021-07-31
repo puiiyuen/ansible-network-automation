@@ -7,20 +7,22 @@
 ---
 - name: Generate Configuration
   template:
-    dest: "outputs/{{ role_name }}/{{ inventory_hostname }}.txt"
+    dest: "outputs/{{ role_name }}/{{ inventory_hostname }}_config.txt"
     src: "config.j2"
   with_items: "{{ routers }}"
   when:
     - item.router_mgnt == inventory_hostname
+  tags:
+    - generate    
 
 - name: Configure Routers
   cisco.ios.ios_config:
-    src: "../outputs/{{ role_name }}/{{ inventory_hostname }}.txt"
+    src: "../outputs/{{ role_name }}/{{ inventory_hostname }}_config.txt"
     diff_against: "running"
     backup: yes
     backup_options:
       dir_path: "../router-backup"
-      filename: "{{ inventory_hostname }}_config.txt"
+      filename: "{{ inventory_hostname }}_backup.txt"
   with_items: "{{ routers }}"
   when: 
     - item.router_mgnt == inventory_hostname 

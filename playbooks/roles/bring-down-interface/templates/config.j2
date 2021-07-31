@@ -1,0 +1,12 @@
+{# -------------------------------------- #}
+{# Templates -> config.j2 #}
+{# Role: bring-down-interface #}
+{# Create at Fri 30 Jul 2021 22:12:07 EDT #}
+{# -------------------------------------- #}
+
+{% import "lib/interface.j2" as intf %}
+{% if item.interfaces is defined %}
+{% for interface in item.interfaces %}
+{{ intf.config_interface(interface) }}
+{% endfor %}
+{% endif %}

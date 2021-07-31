@@ -1,0 +1,13 @@
+
+router ospf 1
+ network 2.2.2.2 0.0.0.0 area 0
+ network 10.10.2.0 0.0.0.255 area 0
+!
+router bgp 12
+ no synchronization
+ neighbor 4.4.4.4 remote-as 12
+ neighbor 4.4.4.4 next-hop-self
+ neighbor 10.10.1.1 remote-as 1
+ neighbor 10.10.4.2 remote-as 12
+ neighbor 10.10.4.2 next-hop-self
+!
