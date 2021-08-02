@@ -21,7 +21,7 @@
     diff_against: "running"
     backup: yes
     backup_options:
-      dir_path: "../router-backup"
+      dir_path: "../backup"
       filename: "{{ inventory_hostname }}_backup.txt"
   with_items: "{{ routers }}"
   when: 
