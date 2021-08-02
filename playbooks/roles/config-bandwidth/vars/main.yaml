@@ -1,0 +1,86 @@
+# --------------------------------------
+# Variables -> main.yaml
+# Role: config-bandwidth
+# Create at Mon  2 Aug 2021 16:55:50 EDT
+# --------------------------------------
+
+# default bandwidth 1000Mbps
+---
+routers:
+  - router_mgnt: 192.168.1.1
+    interfaces: 
+      - name: GigabitEthernet0/1 
+        bw: 1000
+      - name: GigabitEthernet0/2 
+        bw: 1000        
+      
+  - router_mgnt: 192.168.1.2
+    interfaces: 
+      - name: GigabitEthernet0/1
+        bw: 1000
+      - name: GigabitEthernet0/2
+        bw: 1000        
+
+  - router_mgnt: 192.168.1.3
+    interfaces: 
+      - name: Loopback0
+        bw: 1000
+      - name: GigabitEthernet0/1
+        bw: 1000
+      - name: GigabitEthernet0/2
+        bw: 1000
+      - name: GigabitEthernet0/3
+        bw: 1000
+
+  - router_mgnt: 192.168.1.4
+    interfaces: 
+      - name: Loopback0
+        bw: 1000        
+      - name: GigabitEthernet0/1
+        bw: 1000        
+      - name: GigabitEthernet0/2
+        bw: 1000        
+
+  - router_mgnt: 192.168.1.5
+    interfaces: 
+      - name: Loopback0
+        bw: 1000        
+      - name: GigabitEthernet0/2
+        bw: 1000        
+      - name: GigabitEthernet0/3
+        bw: 1000        
+
+  - router_mgnt: 192.168.1.6
+    interfaces: 
+      - name: Loopback0
+        bw: 1000        
+      - name: GigabitEthernet0/1
+        bw: 1000        
+      - name: GigabitEthernet0/3
+        bw: 1000        
+
+  - router_mgnt: 192.168.1.7
+    interfaces: 
+      - name: GigabitEthernet0/1
+        bw: 1000        
+      - name: GigabitEthernet0/2
+        bw: 1000        
+
+  - router_mgnt: 192.168.1.8
+    interfaces: 
+      - name: Loopback0
+        bw: 1000        
+      - name: GigabitEthernet0/1
+        bw: 1000        
+      - name: GigabitEthernet0/2
+        bw: 1000        
+      - name: GigabitEthernet0/3
+        bw: 1000
+        
+  - router_mgnt: 192.168.1.9
+    interfaces: 
+      - name: GigabitEthernet0/1
+        bw: 1000         
+      - name: GigabitEthernet0/2
+        bw: 1000
+        

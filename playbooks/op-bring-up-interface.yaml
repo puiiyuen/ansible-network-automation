@@ -2,4 +2,14 @@
   gather_facts: false
   hosts: g10
   roles:
-    - bring-up-interface
+    - role: bring-up-interface
+      routers:
+        - router_mgnt: "{{ play_hosts[0] }}"
+          interfaces: 
+            - name: "{{ interface }}"
+      when:
+        - interface is defined
+
+    - role: bring-up-interface
+      when: 
+        - interface is not defined

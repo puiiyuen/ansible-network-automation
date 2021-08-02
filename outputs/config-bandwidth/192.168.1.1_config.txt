@@ -1,0 +1,5 @@
+
+interface GigabitEthernet0/1
+ bandwidth 1000
+ no shutdown
+!
