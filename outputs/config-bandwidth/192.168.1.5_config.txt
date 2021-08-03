@@ -1,11 +1,13 @@
 
-
 interface Loopback0
+ bandwidth 1000
  no shutdown
 !
 interface GigabitEthernet0/2
+ bandwidth 1000
  no shutdown
 !
 interface GigabitEthernet0/3
+ bandwidth 1000
  no shutdown
 !

@@ -7,3 +7,5 @@
     - config-rt-protocols
     - config-snmp
     - logging-on
+
+- import_playbook: backup.yaml

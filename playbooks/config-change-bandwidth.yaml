@@ -1,0 +1,18 @@
+- name: Changing Bandwidth {{ play_hosts }}
+  gather_facts: false
+  hosts: g10  
+  roles: 
+    - role: config-bandwidth
+      routers:
+        - router_mgnt: "{{ play_hosts[0] }}"
+          interfaces: 
+            - name: "{{ interface }}"
+              bw: "{{ bw }}"
+      when: 
+        - interface is defined
+        - bw is defined
+    - role: config-bandwidth
+      when: 
+        - interface is not defined
+        - bw is not defined
+
