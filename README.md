@@ -78,5 +78,5 @@ Check out [Ansible Official Documentation](https://docs.ansible.com/ansible/2.9/
 Qianru Shen, Shiyuan (Shaun) Li
 
 ## License
-[MIT](https://opensource.org/licenses/MIT)  
+[GPL-3.0](https://opensource.org/licenses/GPL-3.0)  
 2021 Peiyuan (Patrick) Chen 
